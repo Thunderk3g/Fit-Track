@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  pass: boolean = false;
 
   constructor(
     public authService: AuthService
@@ -14,5 +15,8 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  clickEvent() {
+    this.pass = !this.pass;
+}
 
 }
