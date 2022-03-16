@@ -191,10 +191,15 @@
   </div>
   <!-- Sidebar ends -->
   <!-- Remove class [ h-64 ] when adding a card block -->
-  <div class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
+  <div class="container mx-auto py-10 h-full md:w-4/5 w-11/12 px-6" >
     <!-- Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border -->
-    <div class="w-full h-full rounded border-dashed border-2 border-gray-300">
-      <!-- Place your content here -->
+    <div class="rounded-lg rounded items-center w-full h-full " *ngIf="authService.userData as user">
+      <img class="mr-2 h-15 w-15 lg:p-5 lg:h-40 lg:w-40 lg:mr-5 mb-2 lg:mb-5  rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" style="display:inline-block ; border-radius: 50%;"
+      />
+      <p class=" focus:outline-none text-xl lg:text-4xl font-extrabold leading-6" style="display: inline-block;">Hey,{{(user.displayName) ? user.displayName : 'User'}} 👋</p>
+      <p class=" focus:outline-none text-xl lg:text-xl font-extrabold leading-2" >Just Do It.</p>
     </div>
+  
   </div>
+
 </div>
