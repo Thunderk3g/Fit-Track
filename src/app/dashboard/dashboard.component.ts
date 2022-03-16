@@ -7,7 +7,12 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  isList: number | undefined;
+  isMenu: boolean = false;
+  isMenuBtn() {
+    this.isMenu = !this.isMenu;
+  }
+  isSearch: boolean = false;
   constructor(
     public authService: AuthService
   ) { }

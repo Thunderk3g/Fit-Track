@@ -16,7 +16,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   declarations: [
     AppComponent,
     DashboardComponent
-    ],
+      ],
   imports: [
     BrowserModule,
     AppRoutingModule,
