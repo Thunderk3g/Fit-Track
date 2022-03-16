@@ -23,6 +23,7 @@ import { AuthService } from "./shared/services/auth.service";
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
+  
     AngularFireDatabaseModule,
   ],
   providers: [AuthService],

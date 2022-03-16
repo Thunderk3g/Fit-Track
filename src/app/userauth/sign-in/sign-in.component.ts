@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Validators ,FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -8,14 +9,28 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class SignInComponent implements OnInit {
   pass: boolean = false;
- 
+  formdata: any ={};
+
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private formBuilder: FormBuilder
     ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.formdata = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+  });
   }
+  get f() { return this.formdata.controls; }
+
   clickEvent() {
     this.pass = !this.pass;
+}
+onSubmit(){
+  if (this.formdata.invalid) {
+    return;
+}
+  this.authService.SignIn(this.formdata);
 }
 }
