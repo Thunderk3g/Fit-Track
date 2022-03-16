@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from "./shared/services/auth.service";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,8 @@ import { AuthService } from "./shared/services/auth.service";
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-  
     AngularFireDatabaseModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

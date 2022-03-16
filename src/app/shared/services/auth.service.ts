@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root',
 })
@@ -42,7 +43,25 @@ export class AuthService {
         this.SetUserData(result.user);
       })
       .catch((error) => {
-        window.alert(error.message);
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode == 'auth/invalid-email') {
+          Swal.fire(
+            'Wrong Email',
+            'The email you entered does not exist',
+            'error'
+          )        
+        } 
+        else if (errorCode == 'auth/wrong-password'){
+          Swal.fire(
+            'Wrong Password',
+            'You have entered the wrong password',
+            'error'
+          )        
+       } 
+        else {
+          alert(errorMessage);
+       }
       });
   }
   // Sign up with email/password
