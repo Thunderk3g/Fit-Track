@@ -9,8 +9,14 @@ import { AuthService } from '../shared/services/auth.service';
 export class DashboardComponent implements OnInit {
   isList: number | undefined;
   isMenu: boolean = false;
+  isLetsGo: boolean = false;
+  clicked:boolean =false;
   isMenuBtn() {
     this.isMenu = !this.isMenu;
+  }
+  isLetsgoBtn(){
+    
+    this.isLetsGo = !this.isLetsGo;
   }
   isSearch: boolean = false;
   constructor(
@@ -18,6 +24,7 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
   }
 
 }
